@@ -252,9 +252,7 @@ angular.module('ui.bootstrap.modal', ['ui.bootstrap.multiMap', 'ui.bootstrap.sta
         //clean up the stack
         openedWindows.remove(modalInstance);
         previousTopOpenedModal = openedWindows.top();
-        if (previousTopOpenedModal) {
-          topModalIndex = parseInt(previousTopOpenedModal.value.modalDomEl.attr('index'), 10);
-        }
+        topModalIndex = previousTopOpenedModal ? parseInt(previousTopOpenedModal.value.modalDomEl.attr('index'), 10) : 0;
 
         removeAfterAnimate(modalWindow.modalDomEl, modalWindow.modalScope, function() {
           var modalBodyClass = modalWindow.openedClass || OPENED_MODAL_CLASS;
